@@ -64,13 +64,13 @@ __repo_ps1()
 		done
    		revision=$(svn info 2>/dev/null | grep ^Revision: | cut -d" " -f 2)
 		if [[ -n "${revision}" ]] ; then
-			echo " SVN:"${branch##:-\*}:${revision}
+			echo " [SVN:"${branch##:-\*}:${revision}"]"
 		fi
 	elif [[ -d .git ]]; then
 		branch="$(git symbolic-ref HEAD 2> /dev/null)";
 		hsh="$(git log -1 --oneline 2> /dev/null | cut -c1-7)";
 		if [[ -n "${branch}" ]]; then
-			echo " GIT:"${branch##refs/heads/}:${hsh}
+			echo " [GIT:"${branch##refs/heads/}:${hsh}"]"
 		fi
 	fi
 }
