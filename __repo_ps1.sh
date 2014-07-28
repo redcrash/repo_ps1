@@ -62,7 +62,6 @@ __repo_ps1()
 				break
 			fi
 		done
-
    		revision=$(svn info 2>/dev/null | grep ^Revision: | cut -d" " -f 2)
 		if [[ -n "${revision}" ]] ; then
 			echo " SVN:"${branch##:-\*}:${revision}
